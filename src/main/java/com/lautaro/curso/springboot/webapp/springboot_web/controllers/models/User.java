@@ -3,6 +3,7 @@ package com.lautaro.curso.springboot.webapp.springboot_web.controllers.models;
 public class User {
     private String name;
     private String lastname;
+    private String email;
 
     
     public User(String name, String lastname) {
@@ -25,5 +26,14 @@ public class User {
         this.lastname = lastname;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     
+
 }
