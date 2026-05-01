@@ -6,12 +6,18 @@ public class User {
     private String email;
 
     
+    public User() {
+    }
+
     public User(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;
     }
 
-
+    public User(String name, String lastname, String email) {  
+        this(name, lastname);
+        this.email = email;
+    }
 
     public String getName() {
         return name;
@@ -23,7 +29,7 @@ public class User {
         return lastname;
     }
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastname = lastname; 
     }
 
     public String getEmail() {
