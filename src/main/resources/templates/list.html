@@ -10,7 +10,7 @@
     <div th:if="${users.isEmpty()}">
         <p>No tiene usuarios registrados</p>
     </div>
-    <table>
+    <table th:if="${!users.isEmpty()}">
         <thead>
             <tr>
                 <th>Nombre</th>
