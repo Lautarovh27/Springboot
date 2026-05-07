@@ -20,6 +20,7 @@ public class UserController {
     @GetMapping("/details")
     public String details(Model model) {
         User user = new User("Lautaro","VH");
+        user.setEmail("Spring@correo.com");
         
         model.addAttribute("title", "Hola SpringBoot");
         model.addAttribute("user",user);
