@@ -1,4 +1,4 @@
-package com.lautaro.curso.springboot.webapp.springboot_web.controllers;
+﻿package com.lautaro.curso.springboot.webapp.springboot_web.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +7,7 @@ import com.lautaro.curso.springboot.webapp.springboot_web.controllers.models.Use
 import com.lautaro.curso.springboot.webapp.springboot_web.controllers.models.dto.ParamDto;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -33,8 +34,11 @@ public class PathVariableController {
     @Value("${config.code}")
     private Integer code;
 
-    @Value("${config.listOfValues}")
-    private String[] listOfValues;
+    @Value("#{'${config.listOfValues}'.split(',')}")
+    private List<String> listOfValues;
+
+    @Value("${config.listOfValues1}")
+    private List<String> listOfValues1;
 
     @GetMapping("/baz/{message}")
     public ParamDto baz(@PathVariable String message) {
@@ -66,6 +70,7 @@ public class PathVariableController {
         json.put("message", message);
         json.put("code", code);
         json.put("listOfValues", listOfValues);
+        json.put("listOfValues1", listOfValues1);
         return json;
     }
     
