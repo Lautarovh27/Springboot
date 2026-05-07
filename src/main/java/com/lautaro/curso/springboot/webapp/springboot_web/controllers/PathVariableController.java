@@ -34,11 +34,28 @@ public class PathVariableController {
     @Value("${config.code}")
     private Integer code;
 
+    //manipulamos con los metodos String
     @Value("#{'${config.listOfValues}'.split(',')}")
     private List<String> listOfValues;
 
-    @Value("${config.listOfValues1}")
+    @Value("#{'${config.listOfValues}'.toUpperCase()}")
+    private String listOfValues0;
+
+    @Value("${config.listOfValues}")
     private List<String> listOfValues1;
+
+    @Value("#{${config.valuesMap}}")
+    private Map<String, Object> valuesMap;
+
+    
+    @Value("#{${config.valuesMap}.product}")
+    private String product;
+
+    @Value("#{${config.valuesMap}.price}")
+    private Long price;
+
+    @Value("#{${config.valuesMap}.description}")
+    private String description;
 
     @GetMapping("/baz/{message}")
     public ParamDto baz(@PathVariable String message) {
@@ -70,7 +87,11 @@ public class PathVariableController {
         json.put("message", message);
         json.put("code", code);
         json.put("listOfValues", listOfValues);
+        json.put("listOfValues0", listOfValues0);
         json.put("listOfValues1", listOfValues1);
+        json.put("product", product);
+        json.put("price", price);
+        json.put("valueMap", valuesMap);
         return json;
     }
     
