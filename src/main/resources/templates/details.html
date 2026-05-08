@@ -15,5 +15,11 @@
         </li>
 
     </ul>
+    <a th:href="@{/list}">Volver a la lista</a><br>
+    <a th:href="@{/api/params/foo?message=Hola Springboot desde detailscambia url}">Llamar a la API con parámetros</a><br>
+    <a th:href="@{/api/params/foo(message='Hola Springboot desde details(cambia url)')}">Llamar a la API con parámetros 2</a><br>
+    <a th:href="@{/api/params/bar(text='Peperonix2', code=432134)}">Llamar a la API con parámetros 3</a><br>
+    <a th:href="@{/api/var/baz/Muzzarella}">Llamar a la API con path variable</a><br>
+    <a th:href="@{'/api/var/baz/' + ${user.name}}">Llamar a la API con path variable username</a><br>
 </body>
 </html>
